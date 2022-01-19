@@ -19,9 +19,9 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/api/posts', function () {
-    return Post::all();
-});
-// $router->group(['prefix' => 'api'], function() use ($router) {
-//     $router->get('/posts', 'PostController@index');
+// $router->get('/api/posts', function () {
+//     return Post::all();
 // });
+$router->group(['prefix' => 'api'], function() use ($router) {
+    $router->get('/posts', 'PostController@index');
+});
